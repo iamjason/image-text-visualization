@@ -49,28 +49,8 @@ func attributes( _ font: UIFont,
 }
 
 
-struct Pixel {
-  let red:UInt8
-  let green:UInt8
-  let blue:UInt8
-  let alpha:UInt8
-  init(r:UInt8, g:UInt8, b:UInt8, a:UInt8){
-    red = r
-    green = g
-    blue = b
-    alpha = a
-  }
-}
-extension Pixel {
-  var color:UIColor {
-    get {
-      return UIColor(red: CGFloat(red)/255.0,
-                     green: CGFloat(green)/255.0,
-                     blue: CGFloat(blue)/255.0,
-                     alpha: CGFloat(alpha)/255.0)
-    }
-  }
-}
+
+
 
 extension UIImage {
   
@@ -116,7 +96,7 @@ extension UIImage {
   
   func getCharacter(x:Int, y:Int, character:String, color:UIColor) -> NSAttributedString {
     
-    let attr = attributes(UIFont(name: "Courier", size: 10)!, color: color, alignment: .left, lineSpacing: 0, kerning: 5)
+    let attr = attributes(UIFont(name: "Courier", size: 10)!, color: color, alignment: .left, lineSpacing: 0, kerning: 8)
     return NSAttributedString(string: character, attributes: attr)
   }
   
@@ -148,16 +128,19 @@ extension UIImage {
   
 }
 
-let img = UIImage(named: "test-box-3")!
+let img = UIImage(named: "jason-fu-med")!
 //let p1 = img.getPixel(x: 2, y: 2)
 //let c1 = img.getColor(x: 2, y: 2)
 //let pixels = img.pixels
 //let colors = img.colors
 
 
-let str = "MAVEN1234567890".uppercased()
+let str = "SHUTTHEFUCKUP".uppercased()
+
 
 let attr = img.attributedString(str: str)
+
+
 
 
 
