@@ -99,7 +99,7 @@ extension UIImage {
     
     let pixelData = self.cgImage!.dataProvider!.data
     let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
-    let pixelPosition: Int = ((width * y) + x) * 4
+    let pixelPosition: Int = ((width * x) + y) * 4
   
     let r = data[pixelPosition]
     let g = data[pixelPosition+1]
@@ -115,7 +115,8 @@ extension UIImage {
   }
   
   func getCharacter(x:Int, y:Int, character:String, color:UIColor) -> NSAttributedString {
-    let attr = attributes(UIFont.boldSystemFont(ofSize: 10), color: color, alignment: .left, lineSpacing: 0, kerning: 10)
+    
+    let attr = attributes(UIFont(name: "Courier", size: 10)!, color: color, alignment: .left, lineSpacing: 0, kerning: 5)
     return NSAttributedString(string: character, attributes: attr)
   }
   
@@ -123,8 +124,12 @@ extension UIImage {
     
     var index = 0
     let aStr = NSMutableAttributedString()
-    for x in 0..<width {
-      for y in 0..<height {
+    
+    // this is wacky... but it seems to work,
+    // i think a rotation of the initial image
+    // might fix this oddity
+    for x in 0..<height {
+      for y in 0..<width {
         
         aStr.append(getCharacter(x: x, y: y, character: str[index], color: getColor(x: x, y: y)))
         index = index + 1
@@ -143,14 +148,14 @@ extension UIImage {
   
 }
 
-let img = UIImage(named: "test-box-2")!
-let p1 = img.getPixel(x: 2, y: 2)
-let c1 = img.getColor(x: 2, y: 2)
-let pixels = img.pixels
-let colors = img.colors
+let img = UIImage(named: "test-box-3")!
+//let p1 = img.getPixel(x: 2, y: 2)
+//let c1 = img.getColor(x: 2, y: 2)
+//let pixels = img.pixels
+//let colors = img.colors
 
 
-let str = "jasongarrettisawesome"
+let str = "MAVEN1234567890".uppercased()
 
 let attr = img.attributedString(str: str)
 
