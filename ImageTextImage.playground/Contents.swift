@@ -128,7 +128,7 @@ extension UIImage {
   
 }
 
-let img = UIImage(named: "jason-fu-med")!
+let img = UIImage(named: "test-box-3")!
 //let p1 = img.getPixel(x: 2, y: 2)
 //let c1 = img.getColor(x: 2, y: 2)
 //let pixels = img.pixels
