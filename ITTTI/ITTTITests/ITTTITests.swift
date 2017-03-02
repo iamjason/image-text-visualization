@@ -8,9 +8,13 @@
 
 import XCTest
 @testable import ITTTI
+import AEXML
+
 
 class ITTTITests: XCTestCase {
-    
+  
+  
+  
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,17 +24,59 @@ class ITTTITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+//    
+//    func testPerformanceFirstImplementation() {
+//      
+//        self.measure {
+//          
+//          let img = UIImage(named: "test-box-3")!
+//          let str = "SHUTTHEFUCKUP".uppercased()
+//          let attr = img.attributedString(str: str)
+//          
+//        }
+//    }
+//  func testPerformanceFirstImplementationMed() {
+//    
+//    self.measure {
+//      
+//      let img = UIImage(named: "jason-fu-med")!
+//      let str = "SHUTTHEFUCKUP".uppercased()
+//      let attr = img.attributedString(str: str)
+//      
+//    }
+//  }
+  
+//  func testXMLGeneration(){
+//    
+//    let img = UIImage(named: "test-box-3")!
+//    let str = "SHUTTHEFUCKUP".uppercased()
+//    let attr = img.attributedString(str: str)
+//
+//    
+//    let svg = AEXMLElement(name: "svg")
+//    svg.add
+//    
+//    
+//  }
+//  
+
+  
+  func textSimpleXMLCreationCircle(){
+    /*
+    <svg width="100" height="100">
+    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+    Sorry, your browser does not support inline SVG.
+    </svg>
+    */
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    let attrs = ["width":"100","height":"100"]
+    let xml = AEXMLElement(name: "svg", value: nil, attributes: attrs)
+    print(xml.xml)
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+  }
+  
+  
+  
+  
 }
