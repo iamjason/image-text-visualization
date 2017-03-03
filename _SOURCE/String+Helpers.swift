@@ -6,8 +6,6 @@
 //  Copyright © 2017 Jason Garrett. All rights reserved.
 //
 
-import UIKit
-
 extension String {
   
   var length: Int {
